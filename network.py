@@ -20,11 +20,11 @@ class Network(object):
     def updateWeights(self, data, learning_rate):
         for x, y in data:
             # calculate gradient (backpropagation algorithm)
-            self.weights = 0;
+            self.weights = 0
         
     def updateBias(self, data, learning_rate):
         
-        self.bias = 0;
+        self.bias = 0
        
   
     def sigmoid(self, z):
@@ -37,11 +37,11 @@ class Network(object):
         for i in range(iterations):
             for k in range(0, length, batch_size):
                 batch_x, batch_y = training_images[k:k+batch_size], 
-                training_labels[k:k+batch_size];
+                training_labels[k:k+batch_size]
                 
                 for b in [batch_x, batch_y]:
-                    self.updateWeights(b, learning_rate);
-                    self.updateBias(b, learning_rate);
+                    self.updateWeights(b, learning_rate)
+                    self.updateBias(b, learning_rate)
                 
                 
                 
