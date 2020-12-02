@@ -17,13 +17,31 @@ class Network(object):
     
     # parameters that network will update in training process through each batch
     # these functions are how the network learns
-    def updateWeights():
-        #having a temporary var here removes errors of empty function
-        placeholder = 0;
+    def updateWeights(self, data, learning_rate):
+        for x, y in data:
+            # calculate gradient (backpropagation algorithm)
+            self.weights = 0;
         
-    def updateBias() :
-        placeholder = 0;
+    def updateBias(self, data, learning_rate):
+        
+        self.bias = 0;
        
-    # not sure where this function belongs but we will need it for gradient descent    
-    def sigmoid(z):
+  
+    def sigmoid(self, z):
         return 1.0/(1.0+np.exp(-z))   
+    
+        
+    def gradientDescent(self, training_images, training_labels, batch_size, iterations, learning_rate) :
+        # the training set is fed through the network in smaller batches to speed training process
+        length = len(training_images)
+        for i in range(iterations):
+            for k in range(0, length, batch_size):
+                batch_x, batch_y = training_images[k:k+batch_size], 
+                training_labels[k:k+batch_size];
+                
+                for b in [batch_x, batch_y]:
+                    self.updateWeights(b, learning_rate);
+                    self.updateBias(b, learning_rate);
+                
+                
+                

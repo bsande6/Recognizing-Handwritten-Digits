@@ -8,7 +8,7 @@ Created on Mon Nov 30 18:22:15 2020
 import matplotlib.pyplot as plt
 from mnist import MNIST
 import random
-
+# i dont know why importing this class no longer works
 from network.py import Network
 
 
@@ -35,28 +35,7 @@ n_output = 10  # output layer (0-9 digits)
 
 # creates network object with 3 layers, number of layers can be changed if desired
 net = Network([n_hidden1, n_hidden2, n_hidden3])
+net.gradientDescent(training_images, training_labels, batch_size, n_iterations, learning_rate)
 
-# this function may end up belonging to network class
-def gradientDescent(training_images, training_labels, batch_size, iterations) :
-    # the training set is fed through the network in smaller batches to speed training process
-    for i in range(iterations):
-        for k in range(training_images.length):
-            batch_x, batch_y = training_images[k:k+batch_size], 
-            training_labels[k:k+batch_size];
+
             
-mndata = MNIST('data')
-
-images, labels = mndata.load_training()
-# or
-#images, labels = mndata.load_testing()
-
-index = random.randrange(0, len(images))  # choose an index ;-)
-print(mndata.display(images[index]))
-#def main() :
-#    (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
-   
-   # %matplotlib inline # Only use this if using iPython
-#    image_index = 7777 # You may select anything up to 60,000
-#    print(y_train[image_index]) # The label is 8
-#    plt.imshow(x_train[image_index], cmap='Greys')
-
